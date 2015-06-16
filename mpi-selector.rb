@@ -19,6 +19,8 @@ class MpiSelector < Formula
     system "./configure", "--prefix=#{prefix}"
     # system "cmake", ".", *std_cmake_args
     system "make"
+
+    system "mkdir", "-p", "#{prefix}/bin" # for "File exists" error.
     system "make", "install" # if this fails, try separate make/make install steps
   end
 
